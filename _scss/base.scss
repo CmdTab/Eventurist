@@ -1,0 +1,51 @@
+/*!
+	Theme Name: Eventurist
+	Theme URI: http://cmdtab.co
+	Author: Josh Rives
+	Author URI: http://cmdtab.co
+*/
+@import "normalize";
+@import "bits";
+@import "var";
+
+html,body {
+	overflow-x:hidden;
+	-webkit-font-smoothing: antialiased;
+}
+body {
+	color: $text;
+	font:
+		300 0.875em/1.8
+		"museo-sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	background: $back;
+	position: relative;	
+	@include bp(44) {
+		font-size: 1em;
+	}
+}
+
+a {
+	color: $blue;
+	text-decoration: none;
+	&:hover {
+		color: darken(blue, 10%);
+	}
+}
+.btn {
+	@include button(blue, #fff);
+}
+
+h1,h2,h3,h4,h5,h6 {
+	line-height: 1;
+	margin-top: 0;
+	font-weight: 300;
+}
+
+@import "icons";
+@import "modules";
+@import "home";
+@import "header";
+@import "footer";
+@import "single";
+@import "slider";
+@import "archive";

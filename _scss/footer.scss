@@ -1,0 +1,107 @@
+.site-footer {
+	text-align: center;
+}
+.quote {
+	padding: 1em;
+	background: darken($blue, 10%);
+	blockquote {
+		color: #fff;
+		margin: 0 auto;
+		color: lighten($blue, 40%);
+		color: darken(#fff, 10%);
+		font-style: normal;
+		font-weight: 700;
+	}
+}
+.company {
+	background: $blue;
+	padding: 1em 0;
+	color: darken(#fff, 10%);
+	p {
+		margin: 0;
+	}
+	.logo-wrap {
+		float: none;
+		padding: 0;
+		margin: 0 0 1em;
+		img {
+			display: inline-block;
+		}
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		li {
+			display: inline;
+			&:after {
+				content: '|';
+				margin: 0 0.5em;
+			}
+			&:last-child {
+				&:after {
+					display: none;
+				}
+			}
+		}
+		a {
+			color: darken(#fff, 10%);
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+.fc-footer {
+	padding: 3em 2em;
+	background: #fff;
+	img {
+		display: block;
+		float: left;
+		max-width: 30%;
+	}
+	ul {
+		display: block;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		text-align: right;
+		font-size: 1.2em;
+		li {
+			display: inline-block;
+		}
+		a {
+			color: #909090;
+			display: block;
+			padding: 0.5em;
+		}
+	}
+}
+.event-cats {
+	background: #fff;
+    border-bottom: 1em solid #F2F2F2;
+    padding: 1.5em 2em;
+    h3 {
+	    color: #676767;
+	    margin: 0 0 1em;
+    }
+    a {
+    	font-size: 0.875em;
+	    white-space: nowrap;
+    }
+    ul {
+    	list-style: none;
+    	margin: 0;
+    	padding: 0;
+    	float: left;
+		width: 50%;
+		@include bp(44) {
+			width: 20%;
+	    }
+	}
+	li {
+		display: block;
+		margin: 0 0 0.5em;
+	}
+	
+}
