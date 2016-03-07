@@ -73,7 +73,7 @@
 				                	}
 				                ?>
 				            </li>
-		                	<li><svg class="icon icon-plane"><use xlink:href="#icon-plane"></use></svg>From $221</li>
+		                	<!-- <li><svg class="icon icon-plane"><use xlink:href="#icon-plane"></use></svg>From $221</li> -->
 		                </ul>
 					</div>
 				</a>

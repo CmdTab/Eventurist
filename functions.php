@@ -48,7 +48,7 @@ function mh_magazine_lite_setup() {
 	load_theme_textdomain('mh-magazine-lite', get_template_directory() . '/languages');
 	add_theme_support('title-tag');
 	add_theme_support('automatic-feed-links');
-	add_theme_support('custom-background');
+	// add_theme_support('custom-background');
 	add_theme_support('post-thumbnails');
 	add_image_size('content', 620, 264, true);
 	add_image_size('loop', 174, 131, true);
@@ -85,7 +85,7 @@ add_action('admin_enqueue_scripts', 'mh_magazine_lite_admin_scripts');
 
 /***** Register Widget Areas / Sidebars	*****/
 
-if (!function_exists('mh_widgets_init')) {
+ if (!function_exists('mh_widgets_init')) {
 	function mh_widgets_init() {
 		register_sidebar(array('name' => __('Sidebar', 'mh-magazine-lite'), 'id' => 'sidebar', 'description' => __('Widget area (sidebar left/right) on single posts, pages and archives', 'mh-magazine-lite'), 'before_widget' => '<div id="%1$s" class="sb-widget %2$s">', 'after_widget' => '</div>', 'before_title' => '<h4 class="widget-title">', 'after_title' => '</h4>'));
 		register_sidebar(array('name' => __('Home 1', 'mh-magazine-lite'), 'id' => 'home-1', 'description' => __('Widget area on homepage', 'mh-magazine-lite'), 'before_widget' => '<div id="%1$s" class="sb-widget home-1 home-wide %2$s">', 'after_widget' => '</div>', 'before_title' => '<h4 class="widget-title">', 'after_title' => '</h4>'));
@@ -262,6 +262,8 @@ if (!function_exists('mh_featured_image')) {
 
 if (!function_exists('mh_author_box')) {
 	function mh_author_box($author_ID = '') {
+
+
 		$mh_magazine_lite_options = mh_magazine_lite_theme_options();
 		if (isset($mh_magazine_lite_options['author_box'])) {
 			if (!$mh_magazine_lite_options['author_box'] && !is_attachment() && get_the_author_meta('description', $author_ID)) {
@@ -277,11 +279,17 @@ if (!function_exists('mh_author_box')) {
 			$ab_output = false;
 		}
 		if ($ab_output) {
+                        $myUser = new Pod('user',$author_ID);
+                        $user_city = $myUser->get_field('city');
+                        $user_photo = $myUser->get_field('avartar_photo');
+                        $userPhoto = $user_photo[0]['guid'];
+                        $userPhoto = '<img class="avatar avatar-113 photo" src="http://cdn.cdnfarecompare.com/resources/mcms/eventimages/' . basename($userPhoto) . '" height="113" width="113" />';
 			echo '<section class="author-box">' . "\n";
-				echo '<div class="author-box-wrap clearfix">' . "\n";
+				echo '<div class="author-box-wrap group">' . "\n";
 					echo '<h3><svg class="icon icon-pencil"><use xlink:href="#icon-pencil"></use></svg>About the Author</h3>';
-					echo '<div class="author-box-avatar">' . get_avatar($author_ID, 113) . '</div>' . "\n";
-					echo '<h5 class="author-box-name"><span class="vcard author"><span class="fn">' . __('', 'mh-magazine-lite') . esc_attr(get_the_author_meta('display_name', $author_ID)) . '</span></span></h5>' . "\n";
+					echo '<div class="author-avatar">' . $userPhoto   . '</div>' . "\n";
+					echo '<h4 class="author-name">' . __('', 'mh-magazine-lite') . esc_attr(get_the_author_meta('display_name', $author_ID)) . '</h4>' . "\n";
+					echo '<span class="author-city">' . $user_city . '</span>' . "\n";
 					echo '<div class="author-box-desc">' . wp_kses_post(get_the_author_meta('description', $author_ID)) . '</div>' . "\n";
 				echo '</div>' . "\n";
 			echo '</section>' . "\n";
@@ -495,4 +503,11 @@ function create_tax() {
 	);
 }
 add_action( 'init', 'create_tax' );
+
+function theme_enqueue_styles() {
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+}
+
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+
 ?>

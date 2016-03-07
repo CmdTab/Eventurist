@@ -62,8 +62,9 @@
 }
 .single-details {
 	background: #111;
-	padding: 1em 1.5em;
+	padding: 1em 1.5em 2em;
 	color: #fff;
+	position: relative;
 	h3 {
 		line-height: 1;
 		svg {
@@ -76,6 +77,25 @@
 		font-weight: 700;
 		text-transform: uppercase;
 		margin: 2em 0 0.25em;
+	}
+	.photo-cred {
+		position: absolute;
+		right: 0.25em;
+		bottom: 0.25em;
+		line-height: 1;
+		color: $back;
+		opacity: 0.3;
+		p {
+			display: inline-block;
+			text-transform: uppercase;
+			font-weight: 700;
+			font-size: 0.35em;
+			margin: 0 0 0 0.15em;
+		}
+		.icon-camera {
+			font-size: 0.65em;
+			margin-bottom: -0.1em;
+		}
 	}
 }
 .single-find {

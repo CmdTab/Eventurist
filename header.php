@@ -3,6 +3,7 @@
 <head>
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-itunes-app" content="app-id=1031685526, app-argument=http://farecompare.com"/>
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>"/>
 <?php wp_head(); ?>
 <script src="https://use.typekit.net/gst3ymy.js"></script>
